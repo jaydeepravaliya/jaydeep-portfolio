@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-ink text-slate-100">
       <Header />
-      <div className="lg:pl-72">
+      <div className="lg:pl-80">
         <main>
           <Hero />
           <About />

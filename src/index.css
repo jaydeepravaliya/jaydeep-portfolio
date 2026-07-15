@@ -32,6 +32,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
+    radial-gradient(circle at 8% 0%, rgba(56, 189, 248, 0.12), transparent 28rem),
+    radial-gradient(circle at 98% 6%, rgba(217, 70, 239, 0.11), transparent 24rem),
     linear-gradient(180deg, rgba(14, 22, 36, 0.96) 0%, rgba(7, 11, 18, 1) 42%),
     #070b12;
 }
@@ -53,5 +55,23 @@ a {
 
   .section-shell {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .terminal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(56, 189, 248, 0.55) rgba(255, 255, 255, 0.06);
+  }
+
+  .terminal-scroll::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  .terminal-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .terminal-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #38bdf8, #d946ef);
+    border-radius: 999px;
   }
 }

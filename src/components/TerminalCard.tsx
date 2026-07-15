@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Send, Terminal } from "lucide-react";
@@ -36,12 +36,24 @@ const quickCommands = ["whoami", "show_skills", "llm", "projects"];
 
 export function TerminalCard() {
   const [input, setInput] = useState("");
+  const historyRef = useRef<HTMLDivElement>(null);
   const [history, setHistory] = useState<CommandResult[]>([
     {
       command: "help",
       output: commands.help,
     },
   ]);
+
+  useEffect(() => {
+    const historyElement = historyRef.current;
+
+    if (historyElement) {
+      historyElement.scrollTo({
+        top: historyElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [history]);
 
   const runCommand = (rawCommand: string) => {
     const command = rawCommand.trim().toLowerCase();
@@ -74,7 +86,7 @@ export function TerminalCard() {
   return (
     <motion.aside
       animate={{ opacity: 1, y: 0 }}
-      className="border border-accent/20 bg-panel shadow-glow"
+      className="flex h-[33rem] flex-col border border-accent/20 bg-panel shadow-glow"
       id="terminal"
       initial={{ opacity: 0, y: 24 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -91,7 +103,10 @@ export function TerminalCard() {
         </div>
       </div>
 
-      <div className="min-h-[21rem] space-y-4 p-4 font-mono text-sm leading-6">
+      <div
+        className="terminal-scroll min-h-0 flex-1 space-y-4 overflow-y-auto p-4 pr-3 font-mono text-sm leading-6"
+        ref={historyRef}
+      >
         <AnimatePresence initial={false}>
           {history.map((entry, index) => (
             <motion.div
@@ -114,7 +129,7 @@ export function TerminalCard() {
         </AnimatePresence>
       </div>
 
-      <div className="border-t border-white/10 p-4">
+      <div className="shrink-0 border-t border-white/10 p-4">
         <div className="mb-3 flex flex-wrap gap-2">
           {quickCommands.map((command) => (
             <button
