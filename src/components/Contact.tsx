@@ -9,8 +9,8 @@ export function Contact() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <SectionHeading
             eyebrow="Contact"
-            title="Open to backend, automation, and cloud-focused opportunities."
-            description="For roles or collaboration around Python APIs, FastAPI, Django, AWS, database performance, or CI/CD automation, email is the fastest path."
+            title="Open to backend, automation, and AI-adjacent engineering opportunities."
+            description="The best-fit conversations are around Python APIs, FastAPI, Django, AWS, database performance, CI/CD automation, and practical LLM tooling."
           />
 
           <div className="border border-white/10 bg-panel p-6 sm:p-8">

@@ -1,4 +1,4 @@
-import { GraduationCap, Workflow } from "lucide-react";
+import { BrainCircuit, DatabaseZap, GraduationCap, Workflow } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const highlights = [
@@ -9,8 +9,18 @@ const highlights = [
   },
   {
     icon: Workflow,
-    title: "Production mindset",
+    title: "Production backend mindset",
     text: "Experienced across backend services, REST APIs, relational schema design, cloud migrations, CI/CD automation, and cross-functional delivery with QA, frontend, product, and infrastructure teams.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "LLM learning direction",
+    text: "Building depth in prompt design, RAG architecture, embeddings, tool workflows, and evaluation so AI features can be connected to reliable backend systems.",
+  },
+  {
+    icon: DatabaseZap,
+    title: "Automation leverage",
+    text: "Comfortable turning repetitive infrastructure, deployment, data sync, and operational tasks into maintainable automation with measurable impact.",
   },
 ];
 
@@ -20,8 +30,8 @@ export function About() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="About me"
-          title="A backend-focused engineer with a systems and automation background."
-          description="I work best where API design, database performance, cloud operations, and automation meet. My experience spans Python backend development, AWS cost optimization, CI/CD pipelines, asynchronous workloads, and production troubleshooting."
+          title="A backend-focused engineer growing into LLM-powered automation."
+          description="I work best where API design, database performance, cloud operations, and automation meet. The next layer I am building is applied AI: LLM workflows that are grounded in APIs, retrieval, data quality, and operational reliability."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">

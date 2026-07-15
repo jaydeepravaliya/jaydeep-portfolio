@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Projects } from "./components/Projects";
+import { QuantResearch } from "./components/QuantResearch";
 import { Skills } from "./components/Skills";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <QuantResearch />
         <Projects />
         <Contact />
       </main>

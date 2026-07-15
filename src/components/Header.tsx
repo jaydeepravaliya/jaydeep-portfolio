@@ -4,16 +4,17 @@ import { profile } from "../data/portfolio";
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Research", href: "#research" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-ink/90 backdrop-blur-xl">
       <div className="section-shell flex h-16 items-center justify-between gap-4">
         <a className="focus-ring rounded text-sm font-semibold text-white" href="#home">
-          Jaydeep Ravaliya
+          JR<span className="text-accent">.engineer</span>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
