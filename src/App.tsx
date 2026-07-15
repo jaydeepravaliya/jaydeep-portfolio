@@ -11,15 +11,17 @@ export default function App() {
   return (
     <div className="min-h-screen bg-ink text-slate-100">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <QuantResearch />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="lg:pl-72">
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <QuantResearch />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
