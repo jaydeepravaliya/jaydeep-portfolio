@@ -68,21 +68,6 @@ a {
   background-size: 30px 30px;
 }
 
-.tech-marquee-track {
-  width: max-content;
-  animation: technology-marquee 34s linear infinite;
-}
-
-@keyframes technology-marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

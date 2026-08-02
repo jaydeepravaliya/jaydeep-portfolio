@@ -1,6 +1,14 @@
 export type Technology = {
   code: string;
+  logo: string;
   name: string;
+};
+
+export type TechnologyGroup = {
+  name: string;
+  description: string;
+  technologies: Technology[];
+  wide?: boolean;
 };
 
 export type Capability = {
@@ -31,18 +39,64 @@ export const profile = {
     "I build Python backend systems that remain reliable when APIs retry, background jobs fail, or different systems disagree about data.",
 };
 
-export const technologies: Technology[] = [
-  { code: "PY", name: "Python" },
-  { code: "FA", name: "FastAPI" },
-  { code: "DJ", name: "Django" },
-  { code: "PG", name: "PostgreSQL" },
-  { code: "MY", name: "MySQL" },
-  { code: "RD", name: "Redis" },
-  { code: "CL", name: "Celery" },
-  { code: "AW", name: "AWS" },
-  { code: "DK", name: "Docker" },
-  { code: "PT", name: "pytest" },
-  { code: "CI", name: "CI/CD" },
+const devicon = (path: string) =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${path}`;
+
+export const technologyGroups: TechnologyGroup[] = [
+  {
+    name: "Languages",
+    description: "The language at the center of my backend work.",
+    technologies: [
+      { code: "PY", logo: devicon("python/python-original.svg"), name: "Python" },
+    ],
+  },
+  {
+    name: "Frameworks & APIs",
+    description: "Frameworks for API-first services and backend platforms.",
+    technologies: [
+      { code: "FA", logo: devicon("fastapi/fastapi-original.svg"), name: "FastAPI" },
+      { code: "DJ", logo: devicon("django/django-plain.svg"), name: "Django" },
+    ],
+  },
+  {
+    name: "Databases & Caching",
+    description: "Relational storage and fast shared application state.",
+    technologies: [
+      { code: "PG", logo: devicon("postgresql/postgresql-original.svg"), name: "PostgreSQL" },
+      { code: "MY", logo: devicon("mysql/mysql-original.svg"), name: "MySQL" },
+      { code: "RD", logo: devicon("redis/redis-original.svg"), name: "Redis" },
+    ],
+  },
+  {
+    name: "Async & Testing",
+    description: "Reliable background processing backed by behavioral tests.",
+    technologies: [
+      {
+        code: "CL",
+        logo: "https://raw.githubusercontent.com/celery/celery/master/docs/images/celery_512.png",
+        name: "Celery",
+      },
+      { code: "PT", logo: devicon("pytest/pytest-original.svg"), name: "pytest" },
+    ],
+  },
+  {
+    name: "Cloud & Delivery",
+    description: "Tools for packaging, automation, and cloud delivery.",
+    technologies: [
+      {
+        code: "AWS",
+        logo: devicon("amazonwebservices/amazonwebservices-plain-wordmark.svg"),
+        name: "AWS",
+      },
+      { code: "DK", logo: devicon("docker/docker-original.svg"), name: "Docker" },
+      {
+        code: "GHA",
+        logo: devicon("githubactions/githubactions-original.svg"),
+        name: "GitHub Actions",
+      },
+    ],
+    wide: true,
+  },
 ];
 
 export const capabilities: Capability[] = [
