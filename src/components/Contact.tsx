@@ -1,35 +1,42 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "../data/portfolio";
-import { SectionHeading } from "./SectionHeading";
 
 export function Contact() {
   return (
-    <section className="py-20 sm:py-24" id="contact">
-      <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <SectionHeading
-            eyebrow="Contact"
-            title="Open to backend, automation, and AI-adjacent engineering opportunities."
-            description="The best-fit conversations are around Python APIs, FastAPI, Django, AWS, database performance, CI/CD automation, and practical LLM tooling."
-          />
+    <section className="relative overflow-hidden py-24 sm:py-32" id="contact">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mint/[0.055] blur-3xl" aria-hidden="true" />
+      <div className="section-shell relative">
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] px-6 py-16 text-center shadow-[0_35px_100px_rgba(0,0,0,0.22)] sm:px-12 sm:py-20">
+          <p className="section-kicker">03 / Contact</p>
+          <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-semibold leading-[1.06] tracking-[-0.05em] text-paper sm:text-6xl">
+            Let’s talk about backend systems that need to stay dependable.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-400">
+            For questions about my projects, Python backend engineering, APIs, or system integration, email is the clearest place to start.
+          </p>
 
-          <div className="border border-white/10 bg-panel p-6 sm:p-8">
-            <p className="text-sm font-semibold uppercase text-accent">Professional email</p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              className="focus-ring mt-3 inline-flex max-w-full items-center gap-3 rounded text-lg font-semibold text-white transition hover:text-accent sm:text-2xl"
-              href={`mailto:${profile.email}`}
+              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#122019] transition hover:bg-[#7aefc1]"
+              href={`mailto:${profile.email}?subject=Backend%20Engineering%20Conversation`}
             >
-              <Mail className="size-5 shrink-0 text-accent" />
-              <span className="break-all">{profile.email}</span>
+              <Mail className="size-4" /> Email Jaydeep <ArrowUpRight className="size-4" />
             </a>
-            <p className="mt-5 leading-7 text-slate-300">
-              I usually respond with context, availability, and a clear next step.
-            </p>
             <a
-              className="focus-ring mt-6 inline-flex items-center justify-center gap-2 rounded bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-sky-300"
-              href={`mailto:${profile.email}?subject=Backend%20Developer%20Opportunity`}
+              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-bold text-paper transition hover:border-mint/40 hover:bg-mint/[0.06]"
+              href={profile.linkedin}
+              rel="noreferrer"
+              target="_blank"
             >
-              Start a conversation <ArrowRight className="size-4" />
+              <Linkedin className="size-4 text-mint" /> LinkedIn
+            </a>
+            <a
+              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-bold text-paper transition hover:border-mint/40 hover:bg-mint/[0.06]"
+              href={profile.github}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Github className="size-4 text-mint" /> GitHub
             </a>
           </div>
         </div>

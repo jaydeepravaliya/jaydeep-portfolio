@@ -1,10 +1,10 @@
 # Jaydeep Portfolio
 
-A professional React, Tailwind CSS, Framer Motion, and Vite portfolio for a Backend Developer, Automation Engineer, and LLM learner.
+A responsive React, TypeScript, Tailwind CSS, and Framer Motion portfolio focused on Jaydeep Ravaliya's Python backend engineering work.
 
 Live site: <https://jaydeepravaliya.github.io/jaydeep-portfolio/>
 
-## Run Locally
+## Run locally
 
 ```bash
 pnpm install
@@ -19,14 +19,14 @@ pnpm run build
 
 ## Structure
 
-- `src/data/portfolio.ts` stores editable profile, skill, metric, and project content.
-- `src/components/` contains reusable UI sections.
+- `src/data/portfolio.ts` contains verified profile, capability, technology, and project content.
+- `src/components/` contains the responsive navigation, hero, stack marquee, about, project, contact, and footer sections.
 - `src/App.tsx` assembles the page.
-- `src/index.css` contains Tailwind directives and base styling.
+- `src/index.css` contains the global graphite-and-mint design system and reduced-motion behavior.
 
-## Experience
+## Featured work
 
-- Interactive terminal hero with commands such as `whoami`, `show_skills`, `llm`, `projects`, and `contact`.
-- Skills dashboard with backend, automation, database, and LLM-learning progress indicators.
-- Quantitative and research section for performance, delivery, cost, and LLM evaluation signals.
-- Project cards with GitHub links, demo status, and technology tags.
+- Partner Sync API
+- Customer360 Sync Lab
+
+Publishing to GitHub Pages is handled by `.github/workflows/deploy.yml` after an authorized push to `main`.

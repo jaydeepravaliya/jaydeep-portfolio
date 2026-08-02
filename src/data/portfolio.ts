@@ -1,186 +1,99 @@
-export type Metric = {
-  value: string;
-  label: string;
-};
-
-export type SkillGroup = {
-  title: string;
-  items: string[];
-};
-
-export type SkillScore = {
+export type Technology = {
+  code: string;
   name: string;
-  level: number;
-  category: string;
+};
+
+export type Capability = {
+  title: string;
   detail: string;
+  topics: string[];
 };
 
 export type Project = {
   title: string;
-  challenge: string;
+  eyebrow: string;
+  description: string;
   stack: string[];
   repo: string;
-  demo?: string;
   status: string;
-  type: string;
-};
-
-export type ResearchMetric = {
-  value: number;
-  label: string;
-  note: string;
+  highlights: string[];
+  visual: "partner-sync" | "customer-360";
 };
 
 export const profile = {
   name: "Jaydeep Ravaliya",
-  title: "Backend Developer, Automation Engineer, and LLM Learner",
-  currentRole: "Python Developer at Centific",
-  location: "Cleveland, OH",
+  title: "Python Backend Software Engineer",
+  location: "Cleveland, Ohio",
   email: "workwith.jayr@gmail.com",
   github: "https://github.com/jaydeepravaliya",
   linkedin: "https://www.linkedin.com/in/jaydeep-ravaliya",
-  avatar: "https://avatars.githubusercontent.com/u/75767797?v=4",
   summary:
-    "I build reliable Python APIs, cloud-aware backend systems, and automation workflows while expanding into LLM-powered developer and operations tooling.",
+    "I build Python backend systems that remain reliable when APIs retry, background jobs fail, or different systems disagree about data.",
 };
 
-export const metrics: Metric[] = [
-  { value: "4+", label: "Years building backend systems" },
-  { value: "41%", label: "API performance improvement delivered" },
-  { value: "50%", label: "Faster CI/CD release cycles" },
-  { value: "LLM", label: "Currently building applied AI depth" },
+export const technologies: Technology[] = [
+  { code: "PY", name: "Python" },
+  { code: "FA", name: "FastAPI" },
+  { code: "DJ", name: "Django" },
+  { code: "PG", name: "PostgreSQL" },
+  { code: "MY", name: "MySQL" },
+  { code: "RD", name: "Redis" },
+  { code: "CL", name: "Celery" },
+  { code: "AW", name: "AWS" },
+  { code: "DK", name: "Docker" },
+  { code: "PT", name: "pytest" },
+  { code: "CI", name: "CI/CD" },
 ];
 
-export const skillGroups: SkillGroup[] = [
+export const capabilities: Capability[] = [
   {
-    title: "Backend Core",
-    items: ["Python", "FastAPI", "Django", "Django REST Framework", "REST API Design", "Microservices"],
+    title: "Reliable APIs",
+    detail: "Backend interfaces designed for the failure paths that matter, not only the successful request.",
+    topics: ["Idempotency", "Safe retries", "Authentication", "API contracts"],
   },
   {
-    title: "Data Layer",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch", "Schema Design", "Indexing"],
+    title: "System integration",
+    detail: "Clear boundaries and reconciliation workflows when separate systems represent the same data differently.",
+    topics: ["Identity mapping", "Conflict handling", "Data normalization", "Audit trails"],
   },
   {
-    title: "Automation and Cloud",
-    items: ["AWS", "Boto3", "Docker", "Terraform", "Jenkins", "GitHub Actions", "Power Automate"],
-  },
-  {
-    title: "LLM Learning Track",
-    items: ["Prompt Engineering", "RAG Concepts", "Embeddings", "Evaluation", "Agent Workflows", "API Tooling"],
-  },
-  {
-    title: "Data and Quality",
-    items: ["Pandas", "NumPy", "pytest", "CI/CD", "Git", "API Integration", "Observability"],
-  },
-];
-
-export const skillScores: SkillScore[] = [
-  {
-    name: "Python API Engineering",
-    level: 92,
-    category: "backend",
-    detail: "FastAPI, Django, DRF, service boundaries, request lifecycle, and integration patterns.",
-  },
-  {
-    name: "Database Performance",
-    level: 86,
-    category: "data",
-    detail: "PostgreSQL/MySQL schema design, indexes, migrations, query tuning, and relational modeling.",
-  },
-  {
-    name: "Cloud Automation",
-    level: 78,
-    category: "automation",
-    detail: "AWS services, Boto3, infrastructure tuning, S3 lifecycle policy, RDS, CloudWatch, and CI/CD.",
-  },
-  {
-    name: "Async Workloads",
-    level: 82,
-    category: "backend",
-    detail: "Celery, Redis queues, background jobs, bottleneck triage, and production troubleshooting.",
-  },
-  {
-    name: "LLM Systems Learning",
-    level: 64,
-    category: "llm",
-    detail: "Prompt design, RAG architecture, embeddings, tool calling concepts, and evaluation workflows.",
-  },
-  {
-    name: "Automation Workflows",
-    level: 74,
-    category: "automation",
-    detail: "CI/CD, GitHub Actions, Jenkins, API-driven automation, and Power Automate exploration.",
+    title: "Async and cloud delivery",
+    detail: "Maintainable background processing and repeatable delivery across application, data, and cloud layers.",
+    topics: ["Celery and Redis", "AWS", "Docker", "CI/CD"],
   },
 ];
 
 export const projects: Project[] = [
   {
-    title: "Portfolio Command Center",
-    challenge:
-      "Turns a traditional resume into an interactive developer platform with terminal commands, animated skills, project signals, and GitHub Pages deployment.",
-    stack: ["React", "Tailwind", "Framer Motion", "GitHub Pages"],
-    repo: "https://github.com/jaydeepravaliya/jaydeep-portfolio",
-    demo: "https://jaydeepravaliya.github.io/jaydeep-portfolio/",
-    status: "Live",
-    type: "Frontend Platform",
+    title: "Partner Sync API",
+    eyebrow: "FastAPI B2B integration platform",
+    description:
+      "A production-style public project that models two independent systems with different partner identifiers and shared data that can fall out of sync.",
+    stack: ["FastAPI", "PostgreSQL", "Celery", "Redis", "JWT", "Docker", "pytest"],
+    repo: "https://github.com/jaydeepravaliya/partner-sync-api",
+    status: "Public project",
+    highlights: [
+      "Idempotent order intake and safe retry behavior",
+      "Bidirectional synchronization with independent schedules",
+      "Conflict detection, deduplication, and human review",
+      "Nineteen tests across auth, sync, pagination, and conflicts",
+    ],
+    visual: "partner-sync",
   },
   {
     title: "Customer360 Sync Lab",
-    challenge:
-      "Synchronizes customer records from CRM, billing, and support sources into a canonical warehouse with incremental watermarks, idempotent upserts, audit logs, and conflict capture.",
-    stack: ["Python", "SQLite", "ETL", "Testing", "GitHub Actions"],
+    eyebrow: "Python data integration",
+    description:
+      "A data-integration lab that synchronizes mock CRM, billing, and support systems into a canonical customer warehouse.",
+    stack: ["Python", "SQLite", "ETL", "Watermarks", "Testing", "GitHub Actions"],
     repo: "https://github.com/jaydeepravaliya/customer360-sync-lab",
-    status: "Interview-ready",
-    type: "Data Integration",
-  },
-  {
-    title: "Inventory Management System",
-    challenge:
-      "Models warehouse stock movement, order processing, and inventory tracking with relational data handling for operational workflows.",
-    stack: ["Django", "Python", "MySQL", "Inventory", "Backend"],
-    repo: "https://github.com/jaydeepravaliya/inventory_management_sys",
-    status: "Backend",
-    type: "Operations System",
-  },
-  {
-    title: "Lead Management API",
-    challenge:
-      "Implements a FastAPI service for lead intake, protected lead review, status updates, file upload handling, and lightweight SQLite persistence.",
-    stack: ["FastAPI", "SQLite", "Auth", "File Uploads", "REST"],
-    repo: "https://github.com/jaydeepravaliya/lead-management-app-fastapi",
-    status: "API",
-    type: "Service Design",
-  },
-  {
-    title: "Django Login System",
-    challenge:
-      "Provides signup, login, admin management, CRUD operations, and a Postman-tested API surface for user data workflows.",
-    stack: ["Django", "DRF", "Postman", "Auth", "CRUD"],
-    repo: "https://github.com/jaydeepravaliya/DjangoProject",
-    status: "Auth",
-    type: "Web Services",
-  },
-];
-
-export const researchMetrics: ResearchMetric[] = [
-  {
-    value: 41,
-    label: "API performance",
-    note: "Improvement delivered through backend optimization.",
-  },
-  {
-    value: 50,
-    label: "Release velocity",
-    note: "CI/CD acceleration through Jenkins and GitHub Actions automation.",
-  },
-  {
-    value: 30,
-    label: "System responsiveness",
-    note: "Async workload improvement with Celery and Redis queue tuning.",
-  },
-  {
-    value: 20,
-    label: "AWS cost efficiency",
-    note: "Operational cost reduction through resource and storage policy tuning.",
+    status: "Public project",
+    highlights: [
+      "Incremental synchronization with per-source watermarks",
+      "Idempotent upserts and schema normalization",
+      "Soft-delete propagation and synchronization auditing",
+      "Conflict capture and dead-letter handling",
+    ],
+    visual: "customer-360",
   },
 ];

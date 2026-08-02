@@ -1,82 +1,121 @@
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Radio } from "lucide-react";
+import { ArrowLeftRight, ArrowUpRight, Check, Database, Github, RefreshCcw, ShieldAlert } from "lucide-react";
+import type { Project } from "../data/portfolio";
 import { projects } from "../data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 
+function PartnerSyncVisual() {
+  return (
+    <div className="visual-grid relative flex min-h-[330px] items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-[#181d1a] p-6" aria-label="Diagram showing synchronization between partner and internal systems">
+      <div className="absolute left-8 top-8 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-mint">Bidirectional sync</div>
+      <div className="relative z-10 grid w-full max-w-xl grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="rounded-2xl border border-white/10 bg-ink/90 p-5 text-center shadow-xl">
+          <span className="mx-auto grid size-10 place-items-center rounded-xl bg-mint/10 text-mint"><Database className="size-5" /></span>
+          <p className="mt-4 text-sm font-bold text-paper">Partner system</p>
+          <p className="mt-1 font-mono text-[0.65rem] text-stone-500">partner_ref: A-1042</p>
+        </div>
+        <div className="flex flex-col items-center gap-2 text-mint">
+          <ArrowLeftRight className="size-7" />
+          <span className="rounded-full border border-mint/20 bg-mint/[0.08] px-2 py-1 font-mono text-[0.6rem]">safe retry</span>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-ink/90 p-5 text-center shadow-xl">
+          <span className="mx-auto grid size-10 place-items-center rounded-xl bg-mint/10 text-mint"><RefreshCcw className="size-5" /></span>
+          <p className="mt-4 text-sm font-bold text-paper">Internal system</p>
+          <p className="mt-1 font-mono text-[0.65rem] text-stone-500">account_id: 8831</p>
+        </div>
+      </div>
+      <div className="absolute bottom-7 flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/[0.06] px-3 py-1.5 text-[0.65rem] font-semibold text-amber-100/75">
+        <ShieldAlert className="size-3.5" /> Ambiguous conflicts surface for review
+      </div>
+    </div>
+  );
+}
+
+function Customer360Visual() {
+  return (
+    <div className="visual-grid relative flex min-h-[330px] items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-[#181d1a] p-6" aria-label="Diagram showing CRM, billing, and support data flowing to a canonical customer warehouse">
+      <div className="absolute left-8 top-8 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-mint">Incremental sync</div>
+      <div className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-7">
+        <div className="grid w-full grid-cols-3 gap-3">
+          {["Mock CRM", "Mock billing", "Mock support"].map((source, index) => (
+            <div className="rounded-xl border border-white/10 bg-ink/90 p-4 text-center" key={source}>
+              <span className="font-mono text-[0.65rem] text-mint">0{index + 1}</span>
+              <p className="mt-2 text-xs font-bold text-stone-300">{source}</p>
+            </div>
+          ))}
+        </div>
+        <div className="h-8 w-px bg-gradient-to-b from-mint to-mint/10" />
+        <div className="w-full max-w-sm rounded-2xl border border-mint/25 bg-mint/[0.07] p-5 text-center shadow-[0_0_60px_rgba(97,230,178,0.08)]">
+          <Database className="mx-auto size-6 text-mint" />
+          <p className="mt-3 text-sm font-bold text-paper">Canonical customer warehouse</p>
+          <p className="mt-1 font-mono text-[0.62rem] text-stone-500">normalized · audited · recoverable</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProjectVisual({ project }: { project: Project }) {
+  return project.visual === "partner-sync" ? <PartnerSyncVisual /> : <Customer360Visual />;
+}
+
 export function Projects() {
   return (
-    <section className="border-y border-white/10 bg-white/[0.02] py-20 sm:py-24" id="projects">
+    <section className="border-y border-white/10 bg-surface py-24 sm:py-32" id="work">
       <div className="section-shell">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            eyebrow="Projects"
-            title="Project showcase built for recruiter scanning."
-            description="Each card emphasizes the engineering problem, the stack signal, and the next click: repository, live site, or demo status."
-          />
-        </div>
+        <SectionHeading
+          eyebrow="02 / Selected work"
+          title="Public projects that make backend decisions visible."
+          description="The focus is not a long repository list. It is a small set of systems that demonstrate reliability, integration judgment, data consistency, and testable behavior."
+        />
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {projects.map((project) => (
-            <motion.article
-              className="group flex h-full flex-col border border-white/10 bg-panel p-6 transition hover:border-accent/40"
+        <div className="mt-14 space-y-7">
+          {projects.map((project, index) => (
+            <article
+              className="grid gap-8 rounded-[1.75rem] border border-white/10 bg-ink/70 p-3 shadow-[0_30px_90px_rgba(0,0,0,0.18)] lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:p-4"
               key={project.title}
-              whileHover={{ y: -4 }}
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <span className="rounded border border-emerald-300/25 bg-emerald-300/10 px-2 py-1 text-xs font-semibold text-emerald-200">
-                      {project.status}
-                    </span>
-                    <span className="rounded border border-white/10 bg-white/[0.04] px-2 py-1 text-xs text-slate-300">
-                      {project.type}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                </div>
+              <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
+                <ProjectVisual project={project} />
               </div>
 
-              <p className="mt-4 flex-1 leading-7 text-slate-300">{project.challenge}</p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    className="rounded border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs font-medium text-sky-100"
-                    key={item}
-                  >
-                    {item}
+              <div className="px-3 pb-5 sm:px-6 lg:py-8">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full border border-mint/25 bg-mint/[0.07] px-3 py-1.5 text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-mint">
+                    {project.status}
                   </span>
-                ))}
-              </div>
+                  <span className="text-xs font-semibold text-stone-500">{project.eyebrow}</span>
+                </div>
 
-              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+                <h3 className="mt-6 text-3xl font-semibold tracking-[-0.04em] text-paper sm:text-4xl">{project.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-stone-400 sm:text-base">{project.description}</p>
+
+                <ul className="mt-7 grid gap-3" aria-label={`${project.title} highlights`}>
+                  {project.highlights.map((highlight) => (
+                    <li className="flex items-start gap-3 text-sm leading-6 text-stone-300" key={highlight}>
+                      <span className="mt-1 grid size-4 shrink-0 place-items-center rounded-full bg-mint/10 text-mint"><Check className="size-3" /></span>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {project.stack.map((technology) => (
+                    <span className="rounded-full border border-white/10 px-3 py-1.5 text-[0.68rem] font-medium text-stone-400" key={technology}>
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+
                 <a
-                  className="focus-ring inline-flex items-center justify-center gap-2 rounded border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-accent/50 hover:bg-white/5"
+                  className="focus-ring mt-8 inline-flex items-center gap-2 rounded-full bg-paper px-5 py-3 text-sm font-extrabold text-ink transition hover:bg-mint"
                   href={project.repo}
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <Github className="size-4" />
-                  GitHub
+                  <Github className="size-4" /> View repository <ArrowUpRight className="size-4" />
                 </a>
-                {project.demo ? (
-                  <a
-                    className="focus-ring inline-flex items-center justify-center gap-2 rounded bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-sky-300"
-                    href={project.demo}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <ExternalLink className="size-4" />
-                    Live demo
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center justify-center gap-2 rounded border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500">
-                    <Radio className="size-4" />
-                    Demo planned
-                  </span>
-                )}
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

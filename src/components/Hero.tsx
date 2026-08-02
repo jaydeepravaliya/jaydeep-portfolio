@@ -1,89 +1,62 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Brain, Cpu, Github, Linkedin, MapPin, ShieldCheck } from "lucide-react";
-import { metrics, profile } from "../data/portfolio";
-import { TerminalCard } from "./TerminalCard";
+import { ArrowDownRight, ArrowUpRight, Github, Linkedin, MapPin } from "lucide-react";
+import { profile } from "../data/portfolio";
 
 export function Hero() {
   return (
-    <section className="section-shell flex min-h-[calc(100vh-4rem)] flex-col justify-center py-14 sm:py-20" id="home">
-      <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
-        <motion.div animate={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 24 }} transition={{ duration: 0.5 }}>
-          <p className="mb-5 inline-flex items-center gap-2 rounded border border-accent/30 bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
-            <span className="size-2 rounded-full bg-success" />
-            {profile.currentRole} - Backend + LLM automation track
-          </p>
-
-          <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-6xl">
-            Backend engineer building API platforms, automation, and LLM-ready systems.
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-            {profile.summary}
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              className="focus-ring inline-flex items-center justify-center gap-2 rounded bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-sky-300"
-              href={profile.github}
-              rel="noreferrer"
-              target="_blank"
-            >
-              View GitHub <Github className="size-4" />
-            </a>
-            <a
-              className="focus-ring inline-flex items-center justify-center gap-2 rounded border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50 hover:bg-white/5"
-              href={profile.linkedin}
-              rel="noreferrer"
-              target="_blank"
-            >
-              Connect on LinkedIn <Linkedin className="size-4" />
-            </a>
-            <a
-              className="focus-ring inline-flex items-center justify-center gap-2 rounded border border-emerald-300/30 px-5 py-3 text-sm font-semibold text-emerald-200 transition hover:border-emerald-300/70 hover:bg-emerald-300/10"
-              href="#terminal"
-            >
-              Run terminal <ArrowRight className="size-4" />
-            </a>
-          </div>
-        </motion.div>
-
-        <TerminalCard />
+    <section className="grid-backdrop relative flex min-h-[850px] flex-col overflow-hidden border-b border-white/10 pt-20" id="home">
+      <div className="pointer-events-none absolute inset-x-0 top-24 grid h-[610px] place-items-center overflow-hidden" aria-hidden="true">
+        <span className="monogram-outline translate-x-[-4%] text-[clamp(20rem,40vw,35rem)] font-black italic leading-none tracking-[-0.16em]">
+          JR
+        </span>
       </div>
 
-      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {metrics.map((metric) => (
-          <motion.div
-            className="border border-white/10 bg-white/[0.03] p-5"
-            initial={{ opacity: 0, y: 16 }}
-            transition={{ duration: 0.45 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            key={metric.label}
+      <div className="section-shell relative z-10 flex flex-1 flex-col items-center justify-center py-20 text-center">
+        <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-mint/25 bg-mint/[0.07] px-3 py-2 text-center text-[0.58rem] font-extrabold tracking-[0.08em] text-mint sm:px-4 sm:text-xs sm:tracking-[0.14em]">
+          <span className="size-1.5 rounded-full bg-mint shadow-[0_0_16px_#61e6b2]" />
+          PYTHON BACKEND SOFTWARE ENGINEER
+        </p>
+
+        <h1 className="mt-7 max-w-5xl text-[clamp(2.65rem,11vw,6rem)] font-semibold leading-[0.98] tracking-[-0.065em] text-paper">
+          Reliable systems.
+          <span className="block font-serif font-normal italic text-mint">Clear APIs.</span>
+          <span className="block sm:hidden">Data that stays<br />in sync.</span>
+          <span className="hidden sm:block">Data that stays in sync.</span>
+        </h1>
+
+        <p className="mt-7 max-w-2xl text-base leading-8 text-stone-400 sm:text-lg">
+          {profile.summary}
+        </p>
+
+        <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+          <a
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#122019] transition hover:bg-[#7aefc1]"
+            href="#work"
           >
-            <p className="text-3xl font-semibold text-white">{metric.value}</p>
-            <p className="mt-2 text-sm leading-6 text-slate-400">{metric.label}</p>
-          </motion.div>
-        ))}
+            View projects <ArrowDownRight className="size-4" />
+          </a>
+          <a
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.025] px-6 py-3.5 text-sm font-bold text-paper transition hover:border-mint/45 hover:bg-mint/[0.07]"
+            href={profile.github}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Explore GitHub <ArrowUpRight className="size-4 text-mint" />
+          </a>
+        </div>
       </div>
 
-      <div className="mt-6 grid gap-3 lg:grid-cols-3">
-        <div className="border border-white/10 bg-panel/70 p-4">
-          <Cpu className="size-5 text-accent" />
-          <p className="mt-3 text-sm font-semibold text-white">API systems</p>
-          <p className="mt-2 text-sm leading-6 text-slate-400">Production REST services, async jobs, schemas, and CI/CD.</p>
-        </div>
-        <div className="border border-white/10 bg-panel/70 p-4">
-          <Brain className="size-5 text-emerald-300" />
-          <p className="mt-3 text-sm font-semibold text-white">LLM direction</p>
-          <p className="mt-2 text-sm leading-6 text-slate-400">RAG, prompt evaluation, embeddings, and agentic API tooling.</p>
-        </div>
-        <div className="border border-white/10 bg-panel/70 p-4">
-          <ShieldCheck className="size-5 text-warning" />
-          <p className="mt-3 text-sm font-semibold text-white">Operational impact</p>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
-            <MapPin className="mr-1 inline size-3 text-accent" />
-            {profile.location}; open to remote or hybrid backend roles.
-          </p>
+      <div className="section-shell relative z-10 grid min-h-24 grid-cols-2 items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-stone-500 sm:grid-cols-3">
+        <span className="inline-flex items-center gap-2">
+          <MapPin className="size-3.5 text-mint" /> {profile.location}
+        </span>
+        <span className="hidden text-center text-stone-300 sm:block">API reliability · Integration · Cloud delivery</span>
+        <div className="flex justify-end gap-4">
+          <a className="focus-ring inline-flex items-center gap-1.5 text-stone-300 transition hover:text-mint" href={profile.github} rel="noreferrer" target="_blank">
+            <Github className="size-3.5" /> GitHub
+          </a>
+          <a className="focus-ring inline-flex items-center gap-1.5 text-stone-300 transition hover:text-mint" href={profile.linkedin} rel="noreferrer" target="_blank">
+            <Linkedin className="size-3.5" /> LinkedIn
+          </a>
         </div>
       </div>
     </section>

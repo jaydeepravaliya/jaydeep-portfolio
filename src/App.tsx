@@ -4,24 +4,20 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Projects } from "./components/Projects";
-import { QuantResearch } from "./components/QuantResearch";
 import { Skills } from "./components/Skills";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink text-slate-100">
+    <div className="min-h-screen bg-ink text-paper">
       <Header />
-      <div className="lg:pl-80">
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <QuantResearch />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <main>
+        <Hero />
+        <Skills />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
