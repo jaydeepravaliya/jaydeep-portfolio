@@ -2,13 +2,13 @@ export type Technology = {
   code: string;
   logo: string;
   name: string;
+  status?: "Learning";
 };
 
 export type TechnologyGroup = {
   name: string;
   description: string;
   technologies: Technology[];
-  wide?: boolean;
 };
 
 export type Capability = {
@@ -44,44 +44,59 @@ const devicon = (path: string) =>
 
 export const technologyGroups: TechnologyGroup[] = [
   {
-    name: "Languages",
-    description: "The language at the center of my backend work.",
+    name: "Languages & scripting",
+    description: "Core languages for backend services and automation.",
     technologies: [
       { code: "PY", logo: devicon("python/python-original.svg"), name: "Python" },
+      { code: "SH", logo: devicon("bash/bash-original.svg"), name: "Bash" },
+      {
+        code: "TS",
+        logo: devicon("typescript/typescript-original.svg"),
+        name: "TypeScript",
+        status: "Learning",
+      },
     ],
   },
   {
     name: "Frameworks & APIs",
-    description: "Frameworks for API-first services and backend platforms.",
+    description: "Frameworks for API-first services and backend applications.",
     technologies: [
       { code: "FA", logo: devicon("fastapi/fastapi-original.svg"), name: "FastAPI" },
       { code: "DJ", logo: devicon("django/django-plain.svg"), name: "Django" },
+      { code: "FL", logo: devicon("flask/flask-original.svg"), name: "Flask" },
     ],
   },
   {
-    name: "Databases & Caching",
-    description: "Relational storage and fast shared application state.",
+    name: "Databases & search",
+    description: "Relational, document, caching, and search systems.",
     technologies: [
       { code: "PG", logo: devicon("postgresql/postgresql-original.svg"), name: "PostgreSQL" },
       { code: "MY", logo: devicon("mysql/mysql-original.svg"), name: "MySQL" },
+      { code: "MO", logo: devicon("mongodb/mongodb-original.svg"), name: "MongoDB" },
       { code: "RD", logo: devicon("redis/redis-original.svg"), name: "Redis" },
+      {
+        code: "ES",
+        logo: devicon("elasticsearch/elasticsearch-original.svg"),
+        name: "Elasticsearch",
+      },
     ],
   },
   {
-    name: "Async & Testing",
-    description: "Reliable background processing backed by behavioral tests.",
+    name: "Async & data tools",
+    description: "Background processing and practical data workflows.",
     technologies: [
       {
         code: "CL",
         logo: "https://raw.githubusercontent.com/celery/celery/master/docs/images/celery_512.png",
         name: "Celery",
       },
-      { code: "PT", logo: devicon("pytest/pytest-original.svg"), name: "pytest" },
+      { code: "PD", logo: devicon("pandas/pandas-original.svg"), name: "Pandas" },
+      { code: "NP", logo: devicon("numpy/numpy-original.svg"), name: "NumPy" },
     ],
   },
   {
-    name: "Cloud & Delivery",
-    description: "Tools for packaging, automation, and cloud delivery.",
+    name: "Cloud & infrastructure",
+    description: "Cloud delivery, containers, and repeatable infrastructure.",
     technologies: [
       {
         code: "AWS",
@@ -89,13 +104,23 @@ export const technologyGroups: TechnologyGroup[] = [
         name: "AWS",
       },
       { code: "DK", logo: devicon("docker/docker-original.svg"), name: "Docker" },
+      { code: "TF", logo: devicon("terraform/terraform-original.svg"), name: "Terraform" },
+    ],
+  },
+  {
+    name: "Testing & delivery",
+    description: "Testing, source control, and continuous delivery tooling.",
+    technologies: [
+      { code: "PT", logo: devicon("pytest/pytest-original.svg"), name: "pytest" },
+      { code: "GT", logo: devicon("git/git-original.svg"), name: "Git" },
+      { code: "GH", logo: devicon("github/github-original.svg"), name: "GitHub" },
       {
         code: "GHA",
         logo: devicon("githubactions/githubactions-original.svg"),
         name: "GitHub Actions",
       },
+      { code: "JK", logo: devicon("jenkins/jenkins-original.svg"), name: "Jenkins" },
     ],
-    wide: true,
   },
 ];
 
