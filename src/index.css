@@ -68,6 +68,16 @@ a {
   background-size: 30px 30px;
 }
 
+.case-study-book {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 4.5rem),
+    radial-gradient(circle at 72% 12%, rgba(97, 230, 178, 0.055), transparent 30%),
+    #171b19;
+  box-shadow:
+    inset 1.25rem 0 2.5rem rgba(0, 0, 0, 0.16),
+    0 35px 110px rgba(0, 0, 0, 0.32);
+}
+
 .technology-logo {
   filter: grayscale(1) brightness(0) invert(1);
   opacity: 0.38;
