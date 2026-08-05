@@ -17,6 +17,20 @@ export type Capability = {
   topics: string[];
 };
 
+export type ProjectCaseStudy = {
+  architectureUrl: string;
+  constraints: string[];
+  decisions: {
+    title: string;
+    detail: string;
+  }[];
+  outcome: string;
+  problem: string;
+  problemTitle: string;
+  scopeNote: string;
+  verification: string[];
+};
+
 export type Project = {
   title: string;
   eyebrow: string;
@@ -26,6 +40,7 @@ export type Project = {
   status: string;
   highlights: string[];
   visual: "partner-sync" | "customer-360";
+  caseStudy?: ProjectCaseStudy;
 };
 
 export const profile = {
@@ -158,6 +173,51 @@ export const projects: Project[] = [
       "Nineteen tests across auth, sync, pagination, and conflicts",
     ],
     visual: "partner-sync",
+    caseStudy: {
+      architectureUrl:
+        "https://github.com/jaydeepravaliya/partner-sync-api/blob/master/docs/architecture.md",
+      problemTitle: "One order can cross two systems—and arrive more than once.",
+      problem:
+        "Partners submit purchase orders through a modern API while fulfillment lives in a legacy ERP. The systems do not share a database, identify partners differently, and update order state independently. A dropped response can also make a client retry the same request, so the integration must prevent duplicate orders without hiding genuine disagreements between systems.",
+      constraints: [
+        "No shared database or primary key between the platform and ERP",
+        "Network retries must not create duplicate purchase orders",
+        "Outbound orders and inbound fulfillment move on separate schedules",
+        "Some state conflicts are unsafe to resolve automatically",
+      ],
+      decisions: [
+        {
+          title: "Make retries a contract",
+          detail:
+            "Every order request requires an idempotency key. Replaying the same body returns the original order; reusing the key with a different body returns a 409 conflict instead of guessing.",
+        },
+        {
+          title: "Separate the sync directions",
+          detail:
+            "Orders move out and fulfillment status moves back through independently schedulable flows. Celery, the CLI, and the admin trigger all call the same reusable sync engine.",
+        },
+        {
+          title: "Surface business conflicts",
+          detail:
+            "A cancellation request that meets an already shipped or delivered order becomes a deduplicated conflict record for human review rather than a silent overwrite.",
+        },
+        {
+          title: "Isolate and audit failures",
+          detail:
+            "A failed order is marked without stopping the whole run, while each synchronization execution records its direction, timing, counts, and error message.",
+        },
+      ],
+      verification: [
+        "19 pytest tests",
+        "Authentication and role visibility",
+        "Idempotency and pagination",
+        "Synchronization and conflict paths",
+      ],
+      outcome:
+        "The result is a demonstrable integration where retries converge on one order, each sync direction can run independently, and ambiguous state is made visible for review.",
+      scopeNote:
+        "This is a production-style public project built with a mock legacy ERP. It does not claim live customer usage or commercial production traffic.",
+    },
   },
   {
     title: "Customer360 Sync Lab",
