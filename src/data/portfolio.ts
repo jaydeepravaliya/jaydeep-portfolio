@@ -24,6 +24,10 @@ export type ProjectCaseStudy = {
     title: string;
     detail: string;
   }[];
+  failurePaths: {
+    trigger: string;
+    response: string;
+  }[];
   outcome: string;
   problem: string;
   problemTitle: string;
@@ -205,6 +209,24 @@ export const projects: Project[] = [
           title: "Isolate and audit failures",
           detail:
             "A failed order is marked without stopping the whole run, while each synchronization execution records its direction, timing, counts, and error message.",
+        },
+      ],
+      failurePaths: [
+        {
+          trigger: "The client retries after the response is lost",
+          response: "The same idempotency key and request body return the original order instead of creating a duplicate.",
+        },
+        {
+          trigger: "An idempotency key is reused for different order data",
+          response: "The API returns a 409 conflict so a client bug cannot be mistaken for a legitimate retry.",
+        },
+        {
+          trigger: "One order cannot be pushed to the mock ERP",
+          response: "That order is marked as an error while the synchronization run continues processing the remaining orders.",
+        },
+        {
+          trigger: "A cancellation request meets an already shipped order",
+          response: "The mismatch becomes a deduplicated conflict record that remains visible for human review.",
         },
       ],
       verification: [

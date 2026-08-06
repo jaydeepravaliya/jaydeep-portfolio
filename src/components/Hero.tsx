@@ -23,13 +23,13 @@ export function Hero() {
           <span className="hidden sm:block">Data that stays in sync.</span>
         </h1>
 
-        <p className="mt-7 max-w-2xl text-base leading-8 text-stone-400 sm:text-lg">
+        <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
           {profile.summary}
         </p>
 
         <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
           <a
-            className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#122019] transition hover:bg-[#7aefc1]"
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#111111] transition hover:bg-[#7aefc1]"
             href="#work"
           >
             View projects <ArrowDownRight className="size-4" />
@@ -45,16 +45,16 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="section-shell relative z-10 grid min-h-24 grid-cols-2 items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-stone-500 sm:grid-cols-3">
+      <div className="section-shell relative z-10 grid min-h-24 grid-cols-2 items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-zinc-500 sm:grid-cols-3">
         <span className="inline-flex items-center gap-2">
           <MapPin className="size-3.5 text-mint" /> {profile.location}
         </span>
-        <span className="hidden text-center text-stone-300 sm:block">API reliability · Integration · Cloud delivery</span>
+        <span className="hidden text-center text-zinc-300 sm:block">API reliability · Integration · Cloud delivery</span>
         <div className="flex justify-end gap-4">
-          <a className="focus-ring inline-flex items-center gap-1.5 text-stone-300 transition hover:text-mint" href={profile.github} rel="noreferrer" target="_blank">
+          <a className="focus-ring inline-flex items-center gap-1.5 text-zinc-300 transition hover:text-mint" href={profile.github} rel="noreferrer" target="_blank">
             <Github className="size-3.5" /> GitHub
           </a>
-          <a className="focus-ring inline-flex items-center gap-1.5 text-stone-300 transition hover:text-mint" href={profile.linkedin} rel="noreferrer" target="_blank">
+          <a className="focus-ring inline-flex items-center gap-1.5 text-zinc-300 transition hover:text-mint" href={profile.linkedin} rel="noreferrer" target="_blank">
             <Linkedin className="size-3.5" /> LinkedIn
           </a>
         </div>
