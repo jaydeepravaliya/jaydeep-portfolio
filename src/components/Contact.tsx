@@ -11,13 +11,13 @@ export function Contact() {
           <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-semibold leading-[1.06] tracking-[-0.05em] text-paper sm:text-6xl">
             Let’s talk about backend systems that need to stay dependable.
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-stone-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-400">
             For questions about my projects, Python backend engineering, APIs, or system integration, email is the clearest place to start.
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#122019] transition hover:bg-[#7aefc1]"
+              className="focus-ring inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3.5 text-sm font-extrabold text-[#111111] transition hover:bg-[#7aefc1]"
               href={`mailto:${profile.email}?subject=Backend%20Engineering%20Conversation`}
             >
               <Mail className="size-4" /> Email Jaydeep <ArrowUpRight className="size-4" />

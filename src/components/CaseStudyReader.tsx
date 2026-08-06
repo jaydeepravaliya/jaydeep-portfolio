@@ -58,7 +58,7 @@ function PageIntro({ chapter, title, description }: { chapter: string; title: st
       <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.05em] text-paper sm:text-5xl lg:text-6xl" id="case-study-page-title">
         {title}
       </h1>
-      {description ? <p className="mt-6 max-w-3xl text-base leading-8 text-stone-400 sm:text-lg">{description}</p> : null}
+      {description ? <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-400 sm:text-lg">{description}</p> : null}
     </header>
   );
 }
@@ -73,27 +73,27 @@ function CoverPage({ caseStudy, project }: PageContentProps) {
         <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-paper sm:text-6xl lg:text-7xl" id="case-study-page-title">
           {project.title}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-400">{caseStudy.problemTitle}</p>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">{caseStudy.problemTitle}</p>
         <div className="mt-8 flex flex-wrap gap-2">
           {project.stack.map((technology) => (
-            <span className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-stone-300" key={technology}>
+            <span className="rounded-full border border-white/10 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-zinc-300" key={technology}>
               {technology}
             </span>
           ))}
         </div>
-        <p className="mt-9 flex items-center gap-2 text-xs font-semibold text-stone-500">
+        <p className="mt-9 flex items-center gap-2 text-xs font-semibold text-zinc-500">
           <ArrowRight className="size-4 text-mint" /> Use Next or the arrow keys to move through the case study.
         </p>
       </div>
 
-      <div className="visual-grid relative min-h-[430px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#181d1a] p-6 sm:p-8">
+      <div className="visual-grid relative min-h-[430px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#1f1f1f] p-6 sm:p-8">
         <div className="absolute right-0 top-0 size-64 rounded-full bg-mint/[0.08] blur-3xl" aria-hidden="true" />
         <p className="relative font-mono text-[0.65rem] uppercase tracking-[0.16em] text-mint">Bidirectional order sync</p>
         <div className="relative mt-16 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
           <div className="rounded-2xl border border-white/10 bg-ink/90 p-5 text-center">
             <Database className="mx-auto size-6 text-mint" />
             <p className="mt-4 text-sm font-bold text-paper">Partner platform</p>
-            <p className="mt-2 font-mono text-[0.62rem] text-stone-500">partner_ref: A-1042</p>
+            <p className="mt-2 font-mono text-[0.62rem] text-zinc-500">partner_ref: A-1042</p>
           </div>
           <div className="text-center text-mint">
             <RefreshCcw className="mx-auto size-7" />
@@ -102,7 +102,7 @@ function CoverPage({ caseStudy, project }: PageContentProps) {
           <div className="rounded-2xl border border-white/10 bg-ink/90 p-5 text-center">
             <Workflow className="mx-auto size-6 text-mint" />
             <p className="mt-4 text-sm font-bold text-paper">Mock legacy ERP</p>
-            <p className="mt-2 font-mono text-[0.62rem] text-stone-500">legacy_code: ACME-01</p>
+            <p className="mt-2 font-mono text-[0.62rem] text-zinc-500">legacy_code: ACME-01</p>
           </div>
         </div>
         <div className="relative mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/[0.055] p-4 text-center text-xs leading-6 text-amber-100/75">
@@ -137,12 +137,12 @@ function ProblemPage({ caseStudy }: PageContentProps) {
           <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-6" key={risk.title}>
             <span className="font-mono text-[0.65rem] font-bold text-mint">RISK 0{index + 1}</span>
             <h2 className="mt-4 text-lg font-semibold text-paper">{risk.title}</h2>
-            <p className="mt-3 text-sm leading-7 text-stone-400">{risk.detail}</p>
+            <p className="mt-3 text-sm leading-7 text-zinc-400">{risk.detail}</p>
           </section>
         ))}
       </div>
       <div className="mt-8 rounded-2xl border border-mint/20 bg-mint/[0.055] p-6 sm:p-7">
-        <p className="text-sm font-semibold leading-7 text-stone-200">
+        <p className="text-sm font-semibold leading-7 text-zinc-200">
           The engineering goal was not simply to move data. It was to make repeated requests safe, keep both directions observable, and make ambiguous state visible.
         </p>
       </div>
@@ -164,7 +164,7 @@ function ConstraintsPage({ caseStudy }: PageContentProps) {
             <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-mint/10 font-mono text-xs font-bold text-mint">0{index + 1}</span>
             <div>
               <h2 className="text-base font-semibold leading-7 text-paper">{constraint}</h2>
-              <p className="mt-2 text-xs leading-6 text-stone-500">A constraint treated as part of the API and synchronization design.</p>
+              <p className="mt-2 text-xs leading-6 text-zinc-500">A constraint treated as part of the API and synchronization design.</p>
             </div>
           </section>
         ))}
@@ -202,7 +202,7 @@ function ArchitecturePage() {
             <div className="min-h-40 rounded-2xl border border-white/10 bg-surface p-5 text-center">
               <span className="font-mono text-[0.65rem] font-bold text-mint">0{index + 1}</span>
               <p className="mt-5 text-sm font-bold text-paper">{step.label}</p>
-              <p className="mt-2 text-xs leading-5 text-stone-500">{step.detail}</p>
+              <p className="mt-2 text-xs leading-5 text-zinc-500">{step.detail}</p>
             </div>
             {index < flow.length - 1 ? <ArrowRight className="mx-auto size-4 rotate-90 text-mint md:rotate-0" aria-hidden="true" /> : null}
           </div>
@@ -210,7 +210,7 @@ function ArchitecturePage() {
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {["Celery beat", "CLI command", "Admin trigger"].map((trigger) => (
-          <div className="rounded-xl border border-mint/15 bg-mint/[0.04] px-4 py-4 text-center text-xs font-bold text-stone-300" key={trigger}>
+          <div className="rounded-xl border border-mint/15 bg-mint/[0.04] px-4 py-4 text-center text-xs font-bold text-zinc-300" key={trigger}>
             {trigger} <span className="ml-1 text-mint">→ sync engine</span>
           </div>
         ))}
@@ -236,10 +236,10 @@ function DecisionsPage({ caseStudy }: PageContentProps) {
             <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-6" key={decision.title}>
               <div className="flex items-center justify-between gap-4">
                 <Icon className="size-5 text-mint" />
-                <span className="font-mono text-[0.62rem] font-bold text-stone-600">DECISION 0{index + 1}</span>
+                <span className="font-mono text-[0.62rem] font-bold text-zinc-600">DECISION 0{index + 1}</span>
               </div>
               <h2 className="mt-5 text-lg font-semibold text-paper">{decision.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-stone-400">{decision.detail}</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">{decision.detail}</p>
             </section>
           );
         })}
@@ -263,8 +263,8 @@ function FailurePathsPage({ caseStudy }: PageContentProps) {
               <span className="font-mono text-[0.62rem] font-bold text-mint">SCENARIO 0{index + 1}</span>
               <h2 className="mt-2 text-sm font-semibold leading-6 text-paper">{path.trigger}</h2>
             </div>
-            <ArrowRight className="size-4 rotate-90 text-stone-600 md:rotate-0" aria-hidden="true" />
-            <p className="text-sm leading-7 text-stone-400">{path.response}</p>
+            <ArrowRight className="size-4 rotate-90 text-zinc-600 md:rotate-0" aria-hidden="true" />
+            <p className="text-sm leading-7 text-zinc-400">{path.response}</p>
           </section>
         ))}
       </div>
@@ -287,7 +287,7 @@ function VerificationPage({ caseStudy, project }: PageContentProps) {
           </p>
           <ul className="mt-6 grid gap-4">
             {caseStudy.verification.map((item) => (
-              <li className="flex items-start gap-3 text-sm leading-6 text-stone-300" key={item}>
+              <li className="flex items-start gap-3 text-sm leading-6 text-zinc-300" key={item}>
                 <Check className="mt-1 size-4 shrink-0 text-mint" /> {item}
               </li>
             ))}
@@ -295,8 +295,8 @@ function VerificationPage({ caseStudy, project }: PageContentProps) {
         </section>
         <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 sm:p-7">
           <p className="section-kicker">Result</p>
-          <p className="mt-5 text-lg leading-8 text-stone-200">{caseStudy.outcome}</p>
-          <p className="mt-6 border-t border-white/10 pt-5 text-xs leading-6 text-stone-500">{caseStudy.scopeNote}</p>
+          <p className="mt-5 text-lg leading-8 text-zinc-200">{caseStudy.outcome}</p>
+          <p className="mt-6 border-t border-white/10 pt-5 text-xs leading-6 text-zinc-500">{caseStudy.scopeNote}</p>
         </section>
       </div>
       <div className="mt-7 flex flex-wrap gap-3">
@@ -378,7 +378,7 @@ export function CaseStudyReader({ onClose, onPageChange, page }: CaseStudyReader
             <ArrowLeft className="size-4" /> <span className="hidden sm:inline">Back to portfolio</span><span className="sm:hidden">Back</span>
           </button>
           <div className="hidden h-5 w-px bg-white/10 sm:block" aria-hidden="true" />
-          <p className="hidden text-xs font-extrabold uppercase tracking-[0.14em] text-stone-500 sm:block">Partner Sync API / Case study</p>
+          <p className="hidden text-xs font-extrabold uppercase tracking-[0.14em] text-zinc-500 sm:block">Partner Sync API / Case study</p>
           <p className="ml-auto font-mono text-xs font-bold text-mint">{String(page).padStart(2, "0")} / {String(PARTNER_SYNC_CASE_STUDY_PAGE_COUNT).padStart(2, "0")}</p>
         </div>
         <div className="h-0.5 bg-white/[0.04]" role="progressbar" aria-label="Case study progress" aria-valuemin={1} aria-valuemax={PARTNER_SYNC_CASE_STUDY_PAGE_COUNT} aria-valuenow={page}>
@@ -389,7 +389,7 @@ export function CaseStudyReader({ onClose, onPageChange, page }: CaseStudyReader
       <main className="section-shell py-7 sm:py-10 lg:py-12">
         <div className="grid gap-5 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-7">
           <nav aria-label="Case study chapters" className="lg:sticky lg:top-32 lg:self-start">
-            <p className="mb-4 hidden text-[0.65rem] font-extrabold uppercase tracking-[0.15em] text-stone-600 lg:block">Chapters</p>
+            <p className="mb-4 hidden text-[0.65rem] font-extrabold uppercase tracking-[0.15em] text-zinc-600 lg:block">Chapters</p>
             <ol className="flex gap-2 overflow-x-auto pb-2 lg:grid lg:overflow-visible lg:pb-0">
               {chapters.map((chapter, index) => {
                 const chapterPage = index + 1;
@@ -399,7 +399,7 @@ export function CaseStudyReader({ onClose, onPageChange, page }: CaseStudyReader
                     <button
                       aria-current={isActive ? "step" : undefined}
                       aria-label={`Page ${chapterPage}: ${chapter}`}
-                      className={`focus-ring flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition lg:px-4 lg:py-3 ${isActive ? "border-mint/30 bg-mint/[0.08] text-mint" : "border-white/10 text-stone-500 hover:border-white/20 hover:text-paper"}`}
+                      className={`focus-ring flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left text-xs font-bold transition lg:px-4 lg:py-3 ${isActive ? "border-mint/30 bg-mint/[0.08] text-mint" : "border-white/10 text-zinc-500 hover:border-white/20 hover:text-paper"}`}
                       onClick={() => onPageChange(chapterPage)}
                       type="button"
                     >
@@ -410,7 +410,7 @@ export function CaseStudyReader({ onClose, onPageChange, page }: CaseStudyReader
                 );
               })}
             </ol>
-            <p className="mt-5 hidden text-[0.65rem] leading-5 text-stone-600 lg:block">Arrow keys navigate. Escape returns to the portfolio.</p>
+            <p className="mt-5 hidden text-[0.65rem] leading-5 text-zinc-600 lg:block">Arrow keys navigate. Escape returns to the portfolio.</p>
           </nav>
 
           <section className="case-study-book overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_35px_110px_rgba(0,0,0,0.32)]" aria-live="polite">
@@ -442,7 +442,7 @@ export function CaseStudyReader({ onClose, onPageChange, page }: CaseStudyReader
               >
                 <ArrowLeft className="size-4" /> Previous
               </button>
-              <span className="hidden text-xs font-semibold text-stone-500 sm:block">{chapters[page - 1]}</span>
+              <span className="hidden text-xs font-semibold text-zinc-500 sm:block">{chapters[page - 1]}</span>
               <button
                 className="focus-ring inline-flex min-w-28 items-center justify-center gap-2 rounded-full bg-paper px-4 py-2.5 text-sm font-extrabold text-ink transition hover:bg-mint"
                 onClick={() => isLastPage ? onClose() : onPageChange(page + 1)}

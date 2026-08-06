@@ -19,7 +19,7 @@ export function Skills() {
             />
           </div>
 
-          <div className="flex gap-8 border-l border-mint/35 pl-5 font-mono text-xs uppercase tracking-[0.12em] text-stone-500">
+          <div className="flex gap-8 border-l border-mint/35 pl-5 font-mono text-xs uppercase tracking-[0.12em] text-zinc-500">
             <span>
               <strong className="block text-xl text-paper">{technologyCount}</strong>
               Technologies
@@ -39,7 +39,7 @@ export function Skills() {
             >
               <header className="border-b border-white/10 bg-white/[0.018] p-5 sm:p-6 lg:border-b-0 lg:border-r">
                 <h3 className="text-sm font-bold capitalize text-paper">{group.name}</h3>
-                <p className="mt-2 max-w-xs text-xs leading-5 text-stone-500">{group.description}</p>
+                <p className="mt-2 max-w-xs text-xs leading-5 text-zinc-500">{group.description}</p>
               </header>
 
               <ul className="flex min-w-0 flex-wrap gap-px bg-white/[0.08]">
@@ -49,7 +49,7 @@ export function Skills() {
                     key={technology.name}
                   >
                     <span className="technology-logo-frame relative grid size-14 place-items-center rounded-xl border border-transparent transition-all duration-300">
-                      <span className="font-mono text-[0.62rem] font-black text-stone-600">
+                      <span className="font-mono text-[0.62rem] font-black text-zinc-600">
                         {technology.code}
                       </span>
                       <img
@@ -65,7 +65,7 @@ export function Skills() {
                       />
                     </span>
 
-                    <span className="max-w-full text-xs font-semibold leading-4 text-stone-500 transition-colors duration-300 group-hover:text-paper sm:text-sm">
+                    <span className="max-w-full text-xs font-semibold leading-4 text-zinc-500 transition-colors duration-300 group-hover:text-paper sm:text-sm">
                       {technology.name}
                     </span>
 

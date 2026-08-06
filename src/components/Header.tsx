@@ -37,7 +37,7 @@ export function Header() {
         <nav className="ml-auto hidden items-center gap-8 md:flex" aria-label="Primary navigation">
           {navigation.map((item) => (
             <a
-              className="focus-ring text-sm font-medium tracking-wide text-stone-300 transition hover:text-mint"
+              className="focus-ring text-sm font-medium tracking-wide text-zinc-300 transition hover:text-mint"
               href={item.href}
               key={item.href}
             >
@@ -71,7 +71,7 @@ export function Header() {
           <div className="grid gap-2">
             {navigation.map((item) => (
               <a
-                className="focus-ring rounded-xl px-3 py-3 text-base font-semibold text-stone-200 transition hover:bg-white/[0.04] hover:text-mint"
+                className="focus-ring rounded-xl px-3 py-3 text-base font-semibold text-zinc-200 transition hover:bg-white/[0.04] hover:text-mint"
                 href={item.href}
                 key={item.href}
                 onClick={() => setIsOpen(false)}
